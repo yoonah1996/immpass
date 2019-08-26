@@ -1,5 +1,5 @@
 if(typeof window === 'undefined') {
-  var makeFib = require('../src/makefib');
+  var makeFib = require('../src/makeFib');
   var expect = require('chai').expect;
 }
 
