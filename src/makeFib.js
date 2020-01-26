@@ -22,7 +22,22 @@ fn(); // 5
 */
 
 function makeFib() {
-  // your code here
+  let count = 0;
+  
+  return function(n) {
+    let result;
+    if(n === undefined){
+      result = count;
+      count++;
+    }else{
+      result = n;
+    }
+    
+    if(result < 2){
+      return result;
+    }
+    return makeFib()(result - 1) + makeFib()(result - 2);
+  }
 }
 
 if(typeof window === 'undefined') {

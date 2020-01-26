@@ -23,9 +23,17 @@
 */
 
 function transformEmployeeData(array) {
-  // your code here
-}
+  let newobj = {};
+  let newarr = [];
 
+  for(let i=0; i<array.length; i++){
+    array[i].map(x=> x.reduce((a,b)=> newobj[a] = b));
+    newarr.push(newobj);
+    newobj = {};
+  }
+  return newarr;
+}
+// array[i].reduce((a,b)=> newobj[a] = b)
 // keep this code for testing
 if(typeof window === 'undefined') {
   module.exports = transformEmployeeData;

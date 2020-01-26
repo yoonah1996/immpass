@@ -12,7 +12,12 @@ console.log(output2); // --> 4
 */
 
 function sumDigits(num) {
-  // your code here
+  let newarr = String(num).split("");
+  if(num < 0){
+    newarr.shift();
+    newarr[0] = newarr[0] * -1; 
+  }
+  return newarr.map(el => el * 1).reduce((a,b) => a+b);
 }
 
 // keep this code for testing

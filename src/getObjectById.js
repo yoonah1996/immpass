@@ -72,5 +72,18 @@ let TREE_DATA = {
 };
 
 function getObjectById(json, id) {
-  // your code here
+  let result = {};
+  for(let i=0; i<json.length; i++){
+    if(json[i].id === id){
+      for(let key in json[i]){
+        result[key] = json[i][key];
+      }
+      console.log(result);
+      return result;
+      break;
+    }
+    if(json[i].hasOwnProperty("children")){
+      return getObjectById(json[i].children, id);
+    }
+  }
 }

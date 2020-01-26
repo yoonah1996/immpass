@@ -14,7 +14,12 @@ multiplicativePersistence 함수는 양수를 파라미터로 받는 함수로,
 */
 
 function multiplicativePersistence(num) {
-  // your code here
+  if(num < 10){
+    return num;
+  }else{
+    let newarr = String(num).split("");
+    return multiplicativePersistence(newarr.map(el => el * 1).reduce((a, b)=> a*b));
+  }
 }
 
 if(typeof window === 'undefined') {

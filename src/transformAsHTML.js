@@ -37,5 +37,25 @@ function printRole(user) {
 }
 
 function transformAsHTML(array) {
-  // your code here
+  let tmpl = document.querySelector('#Templ');
+  let out = document.querySelector('#container');
+
+  for(let i=0; i<array.length; i++){
+    let name = array[i].firstName + " " + array[i].lastName;
+    let age = array[i].age;
+    outputHtml(name, age);
+  }
+
+
+  function outputHtml(inname, inage){
+    let clonehtml = document.importNode(tmpl.content, true);
+    let pluname = clonehtml.querySelector('.name');
+    pluname.textContent = inname;
+    pluname.onclick = function (){
+      printRole(inname);
+    }
+    let pluage = clonehtml.querySelector('.age');
+    pluage.textContent = inage;
+    out.appendChild(clonehtml);   onclick = "printRole(name)"
+  }
 }

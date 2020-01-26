@@ -12,7 +12,16 @@ console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
 */
 
 function countWords(input) {
-  // your code here
+  let result = {};
+  let newarr = input.split(" ");
+  if(input.length === 0) return {};
+  for(let i=0; i<newarr.length; i++){
+    if(!result.hasOwnProperty(newarr[i])){
+      result[newarr[i]] = 0;
+    }
+    result[newarr[i]]++;
+  }
+  return result;
 }
 
 // keep this code for testing
