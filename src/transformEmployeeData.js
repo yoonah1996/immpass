@@ -23,37 +23,39 @@
 */
  // 1.array의 첫번째 열을 가져와서 map하면 그배열인 ['firstName', 'Joe']식으로 나온다 reduce로 객체를 만들어 준다
 
-function transformEmployeeData(array) {
-  let newobj = {};
-  let newarr = [];
-
-  for(let i=0; i<array.length; i++){
-    array[i].map(x=> x.reduce((a,b)=> newobj[a] = b));
-    newarr.push(newobj);
-    newobj = {};
-  }
-  return newarr;
-}
-
-
-
-
-
-
-
 // function transformEmployeeData(array) {
 //   let newobj = {};
 //   let newarr = [];
 
-//   var a = array.map(x=> x.reduce(function(pre, value){
-//     console.log(value);
-//     value.map((x,ind) => (newobj[x] = value[1]));
+//   for(let i=0; i<array.length; i++){
+//     array[i].map(x=> x.reduce((a,b)=> newobj[a] = b));
+//     newarr.push(newobj);
+//     newobj = {};
+//   }
+//   return newarr;
+// }
 
-//     return newobj;
-      
-//   }, {}));
-//   console.log(a);
-//   return a;
+
+
+
+
+
+
+function transformEmployeeData(array) {
+  let newobj = {};
+  let newarr = [];
+
+  var a = array.map(x=> (newobj = {}) && (x.reduce(function(pre, value){
+    console.log(value);
+    newobj[value[0]] = value[1];
+    console.log(newobj);
+    return newobj;
+
+
+  }, {})));
+  console.log(a);
+  return a;
+}
   // var value = [ 'firstName', 'Mary' ];
   // var value = [ 'firstName', 'Mary' ];
   // //TODO: firstName, 'Mary'
