@@ -21,6 +21,7 @@
 * Constraint: 반드시 Array의 map 메소드와 reduce 메소드를 사용해서 문제를 해결해야 합니다.
 
 */
+ // 1.array의 첫번째 열을 가져와서 map하면 그배열인 ['firstName', 'Joe']식으로 나온다 reduce로 객체를 만들어 준다
 
 function transformEmployeeData(array) {
   let newobj = {};
@@ -33,7 +34,49 @@ function transformEmployeeData(array) {
   }
   return newarr;
 }
-// array[i].reduce((a,b)=> newobj[a] = b)
+
+
+
+
+
+
+
+// function transformEmployeeData(array) {
+//   let newobj = {};
+//   let newarr = [];
+
+//   var a = array.map(x=> x.reduce(function(pre, value){
+//     console.log(value);
+//     value.map((x,ind) => (newobj[x] = value[1]));
+
+//     return newobj;
+      
+//   }, {}));
+//   console.log(a);
+//   return a;
+  // var value = [ 'firstName', 'Mary' ];
+  // var value = [ 'firstName', 'Mary' ];
+  // //TODO: firstName, 'Mary'
+  // val = value[0] 
+  // (x => newobj[x[0]] = x[1]);
+
+  // var arr2 = array.reduce(function (pre, value) {
+  //   value.map(x => newobj[x[0]] = x[1]);
+  //   newarr.push(newobj);
+  //   newobj = {};
+  //   pre = newarr;
+  // //   return pre;
+  // // }, []);
+  // // newarr = arr2;
+  // array.map(x=> x.reduce(function(pre, value){
+    
+  //   value.map(x => newobj[x[0]] = x[1]);
+
+  //   return newobj;
+
+
+  
+  
 // keep this code for testing
 if(typeof window === 'undefined') {
   module.exports = transformEmployeeData;
