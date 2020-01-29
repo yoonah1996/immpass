@@ -40,22 +40,25 @@ function transformAsHTML(array) {
   let tmpl = document.querySelector('#Templ');
   let out = document.querySelector('#container');
 
+  // for(let i=0; i<array.length; i++){
+  //   let name = array[i].firstName + " " + array[i].lastName;
+  //   let age = array[i].age;
+  //   outputHtml(name, age);
+  // }
   for(let i=0; i<array.length; i++){
-    let name = array[i].firstName + " " + array[i].lastName;
-    let age = array[i].age;
-    outputHtml(name, age);
+    outputHtml(array[i]);
   }
 
 
-  function outputHtml(inname, inage){
+  function outputHtml(obj){
     let clonehtml = document.importNode(tmpl.content, true);
     let pluname = clonehtml.querySelector('.name');
-    pluname.textContent = inname;
+    pluname.textContent = obj.firstName + " " + obj.lastName;
     pluname.onclick = function (){
-      printRole(inname);
+      printRole(obj);
     }
     let pluage = clonehtml.querySelector('.age');
-    pluage.textContent = inage;
-    out.appendChild(clonehtml);   onclick = "printRole(name)"
+    pluage.textContent = obj.age;
+    out.appendChild(clonehtml);
   }
 }

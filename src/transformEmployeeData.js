@@ -36,24 +36,16 @@
 // }
 
 
-
-
-
-
-
 function transformEmployeeData(array) {
   let newobj = {};
   let newarr = [];
 
   var a = array.map(x=> (newobj = {}) && (x.reduce(function(pre, value){
-    console.log(value);
     newobj[value[0]] = value[1];
-    console.log(newobj);
     return newobj;
 
 
   }, {})));
-  console.log(a);
   return a;
 }
   // var value = [ 'firstName', 'Mary' ];
